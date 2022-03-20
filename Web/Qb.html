@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Merry工具箱</title>
+    <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/5.1.1/css/bootstrap.min.css">
+    <script src="https://cdn.staticfile.org/popper.js/2.9.3/umd/popper.min.js"></script>
+    <script src="https://cdn.staticfile.org/twitter-bootstrap/5.1.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="resource/css/index.css">
+</head>
+<body>
+<!--导航页面-->
+<nav class="navbar navbar-expand-sm bg-info navbar-dark">
+    <ul class="navbar-nav">
+        <li class="nav-item active">
+            <a class="nav-link" href="tools" style="">Merry工具箱</a>
+        </li>
+    </ul>
+</nav>
+
+<!--后端GET--->
+<div class="get">
+    <form method="get" action="Qb">
+        <br>
+        <h4>欢迎登陆:{{.Name}}</h4><br>
+        <div class="input-group flex-nowrap">
+            <span class="input-group-text" id="addon-wrapping">QQ号码</span>
+            <input type="text" class="form-control" placeholder="QQ" aria-label="Username"  name="QQ" aria-describedby="addon-wrapping">
+            <button type="submit" class="btn btn-outline-success">Success</button>
+        </div><br>
+    </form>
+
+
+    <div class="input-group flex-nowrap">
+        <span class="input-group-text" id="addon-wrapping">响应</span>
+        <textarea class="form-control" id="exampleFormControlTextarea1" rows="1">{{.Status}}</textarea>
+    </div>
+
+    <div class="input-group flex-nowrap">
+        <span class="input-group-text" id="addon-wrapping">Msg</span>
+        <textarea class="form-control" id="exampleFormControlTextarea1" rows="1">{{.Message}}</textarea>
+    </div><br>
+
+    <div class="input-group flex-nowrap">
+        <span class="input-group-text" id="addon-wrapping">手机号码</span>
+        <textarea class="form-control" id="exampleFormControlTextarea1" rows="1">{{.Phone}}</textarea>
+    </div>
+
+    <div class="input-group flex-nowrap">
+        <span class="input-group-text" id="addon-wrapping">号码归属地</span>
+        <textarea class="form-control" id="exampleFormControlTextarea1" rows="1">{{.Phonediqu}}</textarea>
+    </div>
+
+    <div class="input-group flex-nowrap">
+        <span class="input-group-text" id="addon-wrapping">LOL信息</span>
+        <textarea class="form-control" id="exampleFormControlTextarea1" rows="1">{{.Lol}}</textarea>
+    </div>
+
+    <div class="input-group flex-nowrap">
+        <span class="input-group-text" id="addon-wrapping">微博</span>
+        <textarea class="form-control" id="exampleFormControlTextarea1" rows="1">{{.Wb}}</textarea>
+    </div>
+
+    </div>
+
+
+
+
+</div>
+
+
+
+
+
+</body>
+</html>

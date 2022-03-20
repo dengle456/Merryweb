@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Merry工具箱</title>
+    <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/5.1.1/css/bootstrap.min.css">
+    <script src="https://cdn.staticfile.org/popper.js/2.9.3/umd/popper.min.js"></script>
+    <script src="https://cdn.staticfile.org/twitter-bootstrap/5.1.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="resource/css/index.css">
+</head>
+<body>
+
+<!--导航页面-->
+<nav class="navbar navbar-expand-sm bg-info navbar-dark">
+    <ul class="navbar-nav">
+        <li class="nav-item active">
+            <a class="nav-link" href="tools" style="">Merry工具箱</a>
+        </li>
+    </ul>
+</nav>
+
+<!--后端GET--->
+<div class="get">
+    <br>
+    <form method="get" action="sfz">
+    <h4>欢迎登陆:{{.Name}}</h4><br>
+    <div class="input-group flex-nowrap">
+        <span class="input-group-text" id="addon-wrapping">身份证号</span>
+        <input id="get" type="text" class="form-control" placeholder="身份证号码" aria-label="Username"  name="sfz" aria-describedby="addon-wrapping">
+        <button type="submit" class="btn btn-outline-success" >Success</button>
+    </div><br><br>
+    </form>
+    <table class="table table-hover">
+
+        <tr>
+            <th scope="row">#</th>
+            <td>姓名</td>
+            <td>身份证</td>
+            <td>地区</td>
+        </tr>
+        {{range $i, $v := .Xm}}
+        <tr>
+            <th scope="row">{{$i}}</th>
+            <td>{{$v}}</td>
+            <td>{{(index $.Sfz $i)}}</td>
+        </tr>
+        {{end}}
+    </table>
+</div>
+<script>
+</script>
+</body>
+</html>

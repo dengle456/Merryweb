@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="RemoteTargetsManager">
+    <targets>
+      <target name="root@192.168.0.7:22" type="ssh/sftp">
+        <config>
+          <option name="projectRootOnTarget" value="/root/Merryweb" />
+          <option name="serverName" value="root@192.168.0.7:22 password" />
+        </config>
+        <ContributedStateBase type="GoLanguageRuntime">
+          <config>
+            <option name="goPath" value="/root/go" />
+            <option name="goRoot" value="/bin/go" />
+            <option name="goVersion" value="go1.16.13 linux/amd64" />
+          </config>
+        </ContributedStateBase>
+      </target>
+      <target name="root@tx32.cn:22" type="ssh/sftp">
+        <config>
+          <option name="projectRootOnTarget" value="/root/Merryweb" />
+          <option name="serverName" value="root@tx32.cn:22 password" />
+        </config>
+        <ContributedStateBase type="GoLanguageRuntime">
+          <config />
+        </ContributedStateBase>
+      </target>
+    </targets>
+  </component>
+</project>

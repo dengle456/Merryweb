@@ -1,0 +1,53 @@
+ .logo{
+        position: relative;
+        width: 200px;
+        height: 300px;
+        left: 35%;
+        top: 130px;
+    }
+
+    .user {
+        position: relative;
+        width: 500px;
+        left: 35%;
+        top:30px;
+    }
+    .user button {
+        position: relative;
+        width: 100%;
+    }
+
+
+    .get {
+        position: absolute;
+        top: 15%;
+        left: 25%;
+        width: 50%;
+        height: 30%;
+    }
+
+
+    .container{
+        position: absolute;
+        top: 10%;
+        left: 15%;
+    }
+
+
+    .baiduget .input-group {
+        position: relative;
+        width: 60%;
+    }
+    .baiduget #tab {
+        position: relative;
+        top: 20%;
+        font-size: 14px;
+    }
+    .baiduget #tab th{
+        width: 4%;
+    }
+
+
+
+
+

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+  <meta charset="UTF-8">
+  <title>Meery工具箱</title>
+  <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/5.1.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="resource/css/index.css">
+  <script src="https://cdn.staticfile.org/popper.js/2.9.3/umd/popper.min.js"></script>
+  <script src="https://cdn.staticfile.org/twitter-bootstrap/5.1.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+<!--logo-->
+<div class="logo">
+  <img src="resource/png/logo.png">
+</div>
+
+<!--用户登陆-->
+<div class="user">
+  <form name="register" METHOD="get" action="register" enctype="application/x-www-form-urlencoded">
+    <div class="form-group">
+      <label for="exampleInputEmail1">邮箱</label>
+      <input type="email" class="form-control" id="exampleInputEmail1"  aria-describedby="emailHelp"  name="email">
+      <label for="userleInputuser">用户名</label>
+      <input type="text" class="form-control" id="userleInputuser"  aria-describedby="emailHelp"  name="user">
+    </div>
+    <div class="form-group">
+      <label for="exampleInputPassword1" onclick="register()">密码</label>
+      <input type="password" class="form-control" id="exampleInputPassword1" name="pass">
+      <label for="exampleInputPassword1">确认密码</label>
+      <input type="password" class="form-control" id="exampleInputPassword2" name="pass">
+      <small id="emailHelp" class="form-text text-muted" >{{.}}</small><br><br>
+    </div>
+    <button type="submit" class="btn btn-primary" onclick="return reg()">注册</button>
+  </form>
+</div>
+
+<script>
+
+
+  function reg(){
+    var emali = document.getElementById("exampleInputEmail1");
+    var user = document.getElementById("userleInputuser");
+    var emalihelp = document.getElementById("emailHelp");
+    var exampleInputPassword1 = document.getElementById("exampleInputPassword1").value
+    var exampleInputPassword2 = document.getElementById("exampleInputPassword2").value
+
+
+    if (exampleInputPassword1 != exampleInputPassword2){
+      emalihelp.innerHTML = "密码不一致!"
+      return false
+    }else if(emali.value && user.value){
+      emalihelp.innerHTML = "正在注册中!"
+      return true
+    }else {
+      emalihelp.innerHTML = "请输入有效用户名!"
+      return false
+    }
+
+
+  }
+
+
+
+</script>
+
+
+</body>
+</html>

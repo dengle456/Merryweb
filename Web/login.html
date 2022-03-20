@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>Meery工具箱</title>
+    <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/5.1.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="resource/css/index.css">
+    <script src="https://cdn.staticfile.org/popper.js/2.9.3/umd/popper.min.js"></script>
+    <script src="https://cdn.staticfile.org/twitter-bootstrap/5.1.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+<!--logo-->
+<div class="logo">
+    <img src="resource/png/Logo.png">
+</div>
+
+<!--用户登陆-->
+<div class="user">
+    <form method="GET" action="login">
+    <div class="form-group">
+        <label for="exampleInputEmail1">用户名</label>
+        <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="user">
+    </div>
+    <div class="form-group">
+        <label for="exampleInputPassword1">密码</label>
+        <input type="password" class="form-control" id="exampleInputPassword1" name="pass">
+        <small id="emailHelp" class="form-text text-muted">{{.}}</small><br><br>
+    </div>
+     <input onclick="window.location.href = 'register'" value="注册" class="btn btn-primary" style="width: 49%">
+    <input type="submit" value="登陆" class="btn btn-primary" style="width: 50%" >
+    </form>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Merry工具箱</title>
+    <link rel="stylesheet" href="resource/css/index.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/5.1.1/css/bootstrap.min.css">
+    <script src="https://cdn.staticfile.org/popper.js/2.9.3/umd/popper.min.js"></script>
+    <script src="https://cdn.staticfile.org/twitter-bootstrap/5.1.1/js/bootstrap.min.js"></script>
+    <script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
+</head>
+<body>
+
+<!--导航页面-->
+<nav class="navbar navbar-expand-sm bg-info navbar-dark">
+    <ul class="navbar-nav">
+        <li class="nav-item alert-link" >
+            <a class="nav-link" href="tools" style="">Merry工具箱</a>
+        </li>
+        <li class="nav-item alert-link" >
+        <a class="nav-link" style="position: absolute;left: 70%">用户登陆:{{.}}</a>
+        </li>
+    </ul>
+</nav>
+
+
+<!--后端GET--->
+<div class="baiduget" >
+    <br>
+        <div class="input-group flex-nowrap">
+            <span class="input-group-text" id="addon-wrapping">在线搜索</span>
+            <input id="getinput" type="text" class="form-control" placeholder="搜索文件名" aria-label="Username"  name="sfz" aria-describedby="addon-wrapping">
+            <button id="ssd" type="submit" class="btn btn-outline-success" onclick="s(1)"><i class="bi bi-search"></i>Success<span id="ad" class="spinner-border spinner-border-sm" style="visibility: hidden"></span></button>
+            <div id="a" style="visibility: hidden" class="spinner-border spinner-border-sm"></div>
+        </div>
+    <br>
+    <table id="tab" class="table table-hover">
+        <tr>
+            <th scope="row"><i class="bi bi-list"></i></th>
+            <td><i class="bi bi-folder"></i>文件名</td>
+            <td><i class="bi bi-save"></i>网页</td>
+            <td><i class="bi bi-card-list"></i>目录</td>
+            <td style="width: 5%"><i class="bi bi-key"></i>密码</td>
+            <td style="width: 5%"><i class="bi bi-cloud"></i>网盘类型</td>
+            <td style="width: 10%"><i class="bi bi-alarm"></i>上传时间</td>
+        </tr>
+    </table>
+</div>
+<ul id="fy" class="pagination justify-content-center" style="visibility: inherit">
+</ul>
+
+<div class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+    <div class="toast-header">
+        <img src="..." class="rounded me-2" alt="...">
+        <strong class="me-auto">Bootstrap</strong>
+        <small>11 mins ago</small>
+        <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+    </div>
+    <div class="toast-body">
+        Hello, world! This is a toast message.
+    </div>
+</div>
+<div id="moba" >
+</div>
+<div class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+    <div class="toast-header">
+        <img src="..." class="rounded me-2" alt="...">
+        <strong class="me-auto">Bootstrap</strong>
+        <small>11 mins ago</small>
+        <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+    </div>
+</div>
+<script>
+
+    //点击事件
+    function s(s) {
+        var getinput = document.getElementById("getinput").value;
+        var fy=document.getElementById("fy");
+        var url = "bdyapi?name="+getinput+"&page="+s+"&size=15";
+        var tab=document.getElementById('tab');
+        var moba=document.getElementById('moba');
+        var ad=document.getElementById("ad")
+        ad.style.visibility="visible"
+
+        tab.innerHTML = '<th scope="row"><i class="bi bi-list"></i></th>' +
+            '<td><i class="bi bi-folder"></i>文件名</td>' +
+            '<td><i class="bi bi-save"></i>网页</td>' +
+            '<td> <i class="bi bi-card-list"></i>目录</td>'+
+            '<td style="width: 5%"><i class="bi bi-key"></i>密码</td>' +
+            '<td style="width: 5%"><i class="bi bi-cloud"></i>网盘类型</td>' +
+            '<td style="width: 10%"><i class="bi bi-alarm"></i>上传时间</td>'
+        fy.innerHTML = "";
+        moba.innerHTML= "";
+
+
+        $.get(url,function(data,status){
+            ok=JSON.parse(data)
+            var sd,str,df;
+            for (i in ok.Data) {
+                tab.innerHTML += '<th scope="row">' + i + '</th>' +
+                    '<td style="font-size: 12px">' + ok.Data[i].Name + '</td>' +
+                    '<td style="font-size: 12px"><a target="_blank" class="text-info" href="' + ok.Data[i].Url + '">点击跳转</a> </td>' +
+                    '<td> <a class="text-info" data-bs-toggle="modal" data-bs-target="#exampleModal'+ i +'">查看</a></td>'+
+                    '<td style="width: 5%;font-size: 12px" >' + ok.Data[i].Pass + '</td>' +
+                    '<td style="width: 5%;font-size: 12px">' + ok.Data[i].Tpye + '</td>' +
+                    '<td style="width: 10%;font-size: 12px">' + ok.Data[i].TIME + '</td>'
+
+                moba.innerHTML += '<div class="modal" id="exampleModal'+ i +'" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true"> ' +
+                    '<div class="modal-dialog modal-dialog-centered"> <div class="modal-content"> <div class="modal-header"> <p class="modal-title" id="exampleModalLabel"> <i class="bi bi-card-list"></i>   '+ok.Data[i].Name+'</p> ' +
+                    '<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button> </div> <div class="modal-body" style="font-size: 12px"><pre style="width: 100%;height: 200px">'+ok.Data[i].Diskname +'</pre></div>' +
+                    '<div class="btn-group" role="group" aria-label="Basic example"><button id="sdf" type="submit" onclick="window.open(\''+ ok.Data[i].Url +'\')" class="btn btn-primary btn-sm">打开连接</button><input  style="width: 14px" class="bg-warning text-white btn btn-warning btn-sm"  name="'+ ok.Data[i].Pass +'" value="点击复制" onclick="oCopy(this)" readonly="readonly"/></div></div></div></div>';
+            };
+
+            tab.innerHTML += '   <th scope="row"><td></td> <td></td> <td style="width: 5%"><td style="width: 5%"></td> <td style="width: 10%"><i class="bi bi-alarm"></i>状态:' + ok.Msg + '</td>'
+            ad.style.visibility="hidden";
+                if (ok.Data.length >= 15){
+                fy.style.visibility = "visible";
+                fy.innerHTML += '<li class="page-item"><a class="page-link" href="javascript:s(1);">首页</a></li>';
+                var f
+                for (f in ok.Data){
+                    fy.innerHTML += '<li class="page-item"><a class="page-link" href="javascript:s(' + (parseInt(s)+ parseInt(f))  + ');">' + (parseInt(s)+ parseInt(f))  + '</a></li>';
+                };
+                    fy.innerHTML += '<li class="page-item"><a class="page-link" href="javascript:s(' + (parseInt(s)+ parseInt(f))  + ');">' + '...' + '</a></li>';
+                }
+        });
+    };
+    //json处理
+    function oCopy(obj){
+        obj.value = obj.name
+        obj.select();
+        document.execCommand("Copy");
+        obj.value = '复制成功';
+    };
+
+
+
+
+</script>
+</body>
+</html>
